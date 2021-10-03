@@ -1,0 +1,15 @@
+{% extends 'blogs/base.html' %}
+
+{% load bootstrap4 %} 
+
+{% block content %}
+
+    <form action="{% url 'blogs:create_blog' %}" method='post'>
+        {% csrf_token %}
+        {% bootstrap_form form %} 
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Save</button>
+        {% endbuttons %} 
+    </form>
+
+{% endblock content %}

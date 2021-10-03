@@ -1,0 +1,19 @@
+{% extends 'blogs/base.html' %} 
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4>{{ blog }} </h4>
+        <small>{{ blog.date_added|date:'M d, Y h:i A' }}</small>
+    </div>
+    <div class="card-body">
+        <p>{{ blog.text }}</p>
+    </div>
+</div>
+    {% if user ==  blog.maalik %}
+        <a class="btn btn-primary " href="{% url 'blogs:edit_blog' blog.id %}">Make Changes</a>
+    {% else %}
+        <a class="btn btn-primary disabled" href="{% url 'blogs:edit_blog' blog.id %}">Make Changes</a>
+    {% endif %} 
+
+{% endblock content %}
